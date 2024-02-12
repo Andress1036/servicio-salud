@@ -3,6 +3,8 @@ package com.elsobreviviente.serviciosalud.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -25,48 +27,48 @@ public class UsuarioController {
 	
 	
 	@GetMapping("/listaUsuario")
-	public List<Usuario> listaUsuario(){
-		return usuarioService.listaUsuario();
+	public ResponseEntity<List<Usuario>> listaUsuario(){
+		return new ResponseEntity<>(usuarioService.listaUsuario(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/listaUsuarioDto")
-	public List<UsuarioDto> listaUsuarioDto(){
-		return usuarioService.listaUsuarioDto();
+	public ResponseEntity<List<UsuarioDto>> listaUsuarioDto(){
+		return new ResponseEntity<>(usuarioService.listaUsuarioDto(),HttpStatus.OK);
 	}
 	
 	@GetMapping("/buscarUsuario/{identificacion}")
-	public Usuario buscarUsuario(@PathVariable String identificacion) {
-		return usuarioService.buscarUsuario(identificacion);
+	public ResponseEntity<Usuario> buscarUsuario(@PathVariable String identificacion) {
+		return new ResponseEntity<>(usuarioService.buscarUsuario(identificacion),HttpStatus.FOUND);
 	}
 	
 	@GetMapping("/buscarUsuarioPorLetra/{cadena}")
-	public List<Usuario> listaUsuarioPorLetra(@PathVariable String cadena){
-		return usuarioService.bucarUsuarioPorLetra(cadena);
+	public ResponseEntity<List<Usuario>> listaUsuarioPorLetra(@PathVariable String cadena){
+		return new ResponseEntity<>(usuarioService.bucarUsuarioPorLetra(cadena),HttpStatus.FOUND);
 	}
 	
 	@GetMapping("/buscarUsuarioDtoPorLetra/{cadena}")
-	public List<UsuarioDto> listaUsuarioDtoPorLetra(@PathVariable String cadena){
-		return usuarioService.buscarUsuarioDtoPorLetra(cadena);
+	public ResponseEntity<List<UsuarioDto>> listaUsuarioDtoPorLetra(@PathVariable String cadena){
+		return new ResponseEntity<>(usuarioService.buscarUsuarioDtoPorLetra(cadena),HttpStatus.FOUND);
 	}
 	
 	
 	
 	@PostMapping("/almacenarUsuario")
-	public Usuario almacenarUsuario (@RequestBody Usuario usuario) {
-		return usuarioService.almacenarUsuario(usuario);
+	public ResponseEntity<Usuario> almacenarUsuario (@RequestBody Usuario usuario) {
+		return new ResponseEntity<>(usuarioService.almacenarUsuario(usuario),HttpStatus.ACCEPTED);
 	}
 	
 	@PostMapping("/almacenarUsuarioDto")
-	public UsuarioDto almacenarUsuarioDto (@RequestBody UsuarioDto usuarioDto) {
-		return usuarioService.almacenarUsuarioDtoV1(usuarioDto);
+	public ResponseEntity<UsuarioDto> almacenarUsuarioDto (@RequestBody UsuarioDto usuarioDto) {
+		return new ResponseEntity<>(usuarioService.almacenarUsuarioDtoV1(usuarioDto),HttpStatus.ACCEPTED);
 	}
 	
 	
 	
 	
 	@PutMapping("/actualizarUsuario")
-	public Usuario actualizarUsuario(@RequestBody Usuario usuario) {
-		return usuarioService.actualizarUsuario(usuario);
+	public ResponseEntity<Usuario> actualizarUsuario(@RequestBody Usuario usuario) {
+		return new ResponseEntity<>(usuarioService.actualizarUsuario(usuario),HttpStatus.ACCEPTED);
 	}
 	
 

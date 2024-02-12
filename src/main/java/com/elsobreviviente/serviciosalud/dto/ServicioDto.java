@@ -1,7 +1,10 @@
 package com.elsobreviviente.serviciosalud.dto;
 
+import lombok.Getter;
+import lombok.Setter;
 
-
+@Getter
+@Setter
 public class ServicioDto {
 
 	private Long idCodigoServicio;
@@ -19,31 +22,5 @@ public class ServicioDto {
 		this.nombreServicio = nombreServicio;
 		
 	}
-
-	
-	public Long getIdCodigoServicio() {
-		return idCodigoServicio;
-	}
-
-	public void setIdCodigoServicio(Long idCodigoServicio) {
-		this.idCodigoServicio = idCodigoServicio;
-	}
-
-	public String getCodigoServicio() {
-		return codigoServicio;
-	}
-
-	public void setCodigoServicio(String codigoServicio) {
-		this.codigoServicio = codigoServicio;
-	}
-
-	public String getNombreServicio() {
-		return nombreServicio;
-	}
-
-	public void setNombreServicio(String nombreServicio) {
-		this.nombreServicio = nombreServicio;
-	}
-
 
 }

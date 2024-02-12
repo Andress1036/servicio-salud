@@ -1,26 +1,25 @@
 package com.elsobreviviente.serviciosalud.dto;
 
+import com.elsobreviviente.serviciosalud.entity.Servicio;
 
 public class ServicioDto2 {
 
-	private Long idCodigoServicio; //Auto-incrementado
+	private Long idCodigoServicio; // Auto-incrementado
 	private String codigoServicio;
 	private String nombreServicio;
-	private String tipoServicio;
-	
+	private String codigoTipoServicio;
+
 	public ServicioDto2() {
-		
-	}
-		
 
-	public ServicioDto2(String codigoServicio, String nombreServicio, String tipoServicio) {
-	
-		this.codigoServicio = codigoServicio;
-		this.nombreServicio = nombreServicio;
-		this.tipoServicio = tipoServicio;
 	}
 
+	public ServicioDto2(Servicio servicio) {
+		this.idCodigoServicio = servicio.getIdCodigoServicio();
+		this.codigoServicio = servicio.getCodigoServicio();
+		this.nombreServicio = servicio.getNombreServicio();
+		this.codigoTipoServicio = servicio.getTipoServicio().toString();
 
+	}
 
 	public Long getIdCodigoServicio() {
 		return idCodigoServicio;
@@ -46,15 +45,12 @@ public class ServicioDto2 {
 		this.nombreServicio = nombreServicio;
 	}
 
-
-	public String getTipoServicio() {
-		return tipoServicio;
+	public String getCodigoTipoServicio() {
+		return codigoTipoServicio;
 	}
 
-
-	public void setTipoServicio(String tipoServicio) {
-		this.tipoServicio = tipoServicio;
+	public void setCodigoTipoServicio(String codigoTipoServicio) {
+		this.codigoTipoServicio = codigoTipoServicio;
 	}
-	
-	
+
 }

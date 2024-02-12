@@ -70,6 +70,11 @@ public class TipoServicio {
 				&& Objects.equals(nombreTipoServicio, other.nombreTipoServicio)
 				&& Objects.equals(servicioList, other.servicioList);
 	}
+
+	@Override
+	public String toString() {
+		return codigoTipoServicio.toString();
+	}
 	
 	
 

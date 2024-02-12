@@ -34,7 +34,7 @@ public class UsuarioService {
 		return usuarioRepository.save(usuario);
 	}
 	
-	//UsuarioDto a Usuario version larga y entendible
+	//Pasar de UsuarioDto a Usuario version larga y entendible
 	public UsuarioDto almacenarUsuarioDtoV1 (UsuarioDto usuarioDto) {
 		//convertir dto a entity
 		Usuario usuario = new Usuario();
@@ -44,21 +44,31 @@ public class UsuarioService {
 		return usuarioDto;
 	}
 	
+
+
 	public Usuario actualizarUsuario (Usuario usuario) {
 		return usuarioRepository.save(usuario);
 	}
 	
+
+
 	public void borrarUsuario(String identificacion) {
 		usuarioRepository.deleteById(identificacion);
 	}
+
+
 	
 	public Usuario buscarUsuario(String identificacion) {
 		return usuarioRepository.findById(identificacion).orElse(null);
 	}
+
+
 	
 	public List<Usuario> bucarUsuarioPorLetra(String cadena){
 		return usuarioRepository.findByNombreCompletoContainingIgnoreCase(cadena);
 	}
+	
+
 	
 	public List<UsuarioDto> buscarUsuarioDtoPorLetra(String cadena){
 		List<UsuarioDto> listaUsuarioDto = new ArrayList<>();
