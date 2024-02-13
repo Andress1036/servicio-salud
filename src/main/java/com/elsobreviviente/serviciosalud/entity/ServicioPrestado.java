@@ -24,7 +24,7 @@ public class ServicioPrestado {
 	@ManyToOne
 	private Usuario usuario;
 	@ManyToOne
-	@JoinColumn (name = "id_codigo_servicio", referencedColumnName = "id_codigo_servicio")
+	@JoinColumn (name = "codigo_servicio", referencedColumnName = "codigo_servicio")
 	private Servicio servicio;
 	
 	

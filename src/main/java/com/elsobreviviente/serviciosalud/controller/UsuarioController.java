@@ -72,13 +72,13 @@ public class UsuarioController {
 	}
 	
 
-	
-	
+	// Delete desactivado
+	/*
 	@DeleteMapping("/borrarUsuario/{identificacion}")
 	public void borrarUsuario(@PathVariable String identificacion) {
 		usuarioService.borrarUsuario(identificacion);
 	}
-	
+	*/
 	
 	
 	
