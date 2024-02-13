@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import com.elsobreviviente.serviciosalud.dto.ServicioDto;
 import com.elsobreviviente.serviciosalud.dto.ServicioDto2;
-import com.elsobreviviente.serviciosalud.dto.ServicioDtoId;
 import com.elsobreviviente.serviciosalud.entity.Servicio;
 import com.elsobreviviente.serviciosalud.entity.TipoServicio;
 import com.elsobreviviente.serviciosalud.repository.ServicioRepo;
@@ -101,6 +100,7 @@ public class ServicioService {
 		Servicio servicio = servicioRepo.getReferenceById(servicioDto2.getIdCodigoServicio());
 		servicio.setCodigoServicio(servicioDto2.getCodigoServicio());
 		servicio.setNombreServicio(servicioDto2.getNombreServicio());
+
 		//Pasando de String a TipoServicio
 		String codigoTipoServicio = servicioDto2.getCodigoTipoServicio();
 		TipoServicio tipoServicio = tipoServicioRepo.getReferenceById(codigoTipoServicio);
@@ -123,13 +123,15 @@ public List<ServicioDto2> buscarServicioDto2PorLetra(String cadena){
 		return listaServicioDto2;
 	}
 
+	public List<ServicioDto2> buscarServicioDto2PorCodigoServicio (String cadena){
+		List<ServicioDto2> listaSDto2 = new ArrayList<>();
+		List<Servicio> listaServicio = servicioRepo.findByCodigoServicioContaining(cadena);
 
-
-	//BORRAR servicio
-	public void borrarServicio(ServicioDtoId servicioDtoId) {
-		
-	Servicio servicio =	servicioRepo.getReferenceById(servicioDtoId.getIdCodigoServicio());
-		servicioRepo.delete(servicio);
+		for (Servicio servicio : listaServicio){
+			ServicioDto2 servicioDto2 = new ServicioDto2(servicio);
+			listaSDto2.add(servicioDto2);
+		}
+		return listaSDto2;
 	}
 	
 }

@@ -20,6 +20,8 @@ import com.elsobreviviente.serviciosalud.dto.ServicioDto2;
 import com.elsobreviviente.serviciosalud.entity.Servicio;
 
 import com.elsobreviviente.serviciosalud.service.ServicioService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @CrossOrigin(origins = "http://localhost:4200")
@@ -65,6 +67,12 @@ public class ServicioController {
 	public ResponseEntity<List<ServicioDto2>> buscarServicioDto2PorLetra(@PathVariable String cadena) {
 		return new ResponseEntity<>(servicioService.buscarServicioDto2PorLetra(cadena),HttpStatus.FOUND);
 	}
+
+	@GetMapping("/buscarSDto2PorCodigoServicio/{cadena}")
+	public List<ServicioDto2> buscarSDto2PorCodigoServicio (@PathVariable String cadena) {
+		return servicioService.buscarServicioDto2PorCodigoServicio(cadena);
+	}
+	
 	
 		
 

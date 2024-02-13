@@ -15,24 +15,24 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table (name = "servicio")
+@Table(name = "servicio")
 public class Servicio {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column (name = "id_codigo_servicio")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name = "id_codigo_servicio")
 	private Long idCodigoServicio;
-	@Column (name = "codigo_servicio")
+	@Column(name = "codigo_servicio")
 	private String codigoServicio;
-	@Column (name = "nombre_servicio")
+	@Column(name = "nombre_servicio")
 	private String nombreServicio;
-	
+
 	@ManyToOne
-	@JoinColumn (name = "codigo_tipo_servicio", referencedColumnName = "codigo_tipo_servicio")
+	@JoinColumn(name = "codigo_tipo_servicio", referencedColumnName = "codigo_tipo_servicio")
 	private TipoServicio tipoServicio;
-	@OneToMany (mappedBy = "servicio")
+	@OneToMany(mappedBy = "servicio")
 	private List<ServicioPrestado> listaServicioPrestado = new ArrayList<>();
-	
+
 	public Servicio() {
 
 	}
@@ -97,7 +97,5 @@ public class Servicio {
 				&& Objects.equals(nombreServicio, other.nombreServicio)
 				&& Objects.equals(tipoServicio, other.tipoServicio);
 	}
-	
-	
-	
+
 }
